@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  bot:
+    container_name: no_bitches_bot.bot
+    restart: "on-failure"
+    env_file:
+      - ".env"
+    build:
+      context: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - no_bitches_bot.postgres.network
+    volumes:
+      - no_bitches_bot.bot.data:/.dockerdata/userbot
+
+  postgres:
+    container_name: no_bitches_bot.postgres
+    image: "postgres:15-alpine"
+    hostname: no_bitches_bot.postgres
+    restart: unless-stopped
+    expose:
+      - "5432"
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    networks:
+      - no_bitches_bot.postgres.network
+    environment:
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_USER: ${POSTGRES_USER:-$USER}
+      POSTGRES_DB: ${POSTGRES_DB:-$USER}
+    volumes:
+      - no_bitches_bot.postgres.data:/var/lib/postgresql/users:rw
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  no_bitches_bot.bot.data: {}
+  no_bitches_bot.postgres.data: {}
+
+networks:
+  no_bitches_bot.postgres.network: {}
