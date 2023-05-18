@@ -17,4 +17,5 @@ class MaybeBitchMessage(TimedBaseModel):
     )
     maybe_bitch_id: Mapped[UUID] = mapped_column(ForeignKey("maybe_bitches.id"))
     message_id: Mapped[BigInteger]
-    message: Mapped[str]
+    message: Mapped[str | None]
+    caption: Mapped[str | None]

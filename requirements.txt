@@ -3,3 +3,4 @@ tgcrypto~=1.2 # optional, but recommended for `pyrogram`
 structlog~=23.1
 sqlalchemy~=2.0
 uuid6~=2023.5
+adaptix==3.0.0a3
