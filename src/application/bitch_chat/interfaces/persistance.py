@@ -9,10 +9,10 @@ class BitchChatReader(Protocol):
     async def get_by_id(self, bitch_chat_id: UUID) -> dto.BitchChat:
         raise NotImplementedError
 
-    async def get_by_bitch_id(self, bitch_id: UUID) -> dto.BitchChat:
+    async def get_by_bitch_id(self, bitch_id: UUID) -> list[dto.BitchChat]:
         raise NotImplementedError
 
-    async def get_by_chat_id(self, chat_id: UUID) -> dto.BitchChat:
+    async def get_by_chat_id(self, chat_id: UUID) -> list[dto.BitchChat]:
         raise NotImplementedError
 
     async def get_bitches_chats(self) -> list[dto.BitchChat]:
@@ -26,5 +26,5 @@ class BitchChatRepo(Protocol):
     async def add_bitch_chat(self, bitch_chat: entities.BitchChat) -> None:
         raise NotImplementedError
 
-    async def delete_bitch_chat(self, bitch_chat: entities.BitchChat) -> None:
+    async def delete_by_id(self, bitch_chat_id: UUID) -> None:
         raise NotImplementedError

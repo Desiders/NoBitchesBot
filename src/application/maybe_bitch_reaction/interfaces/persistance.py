@@ -30,7 +30,8 @@ class MaybeBitchReactionRepo(Protocol):
     ) -> None:
         raise NotImplementedError
 
-    async def delete_maybe_bitch_reaction(
-        self, maybe_bitch_reaction: entities.MaybeBitchReaction
+    async def delete_by_id(
+        self,
+        maybe_bitch_reaction_id: UUID,
     ) -> None:
         raise NotImplementedError

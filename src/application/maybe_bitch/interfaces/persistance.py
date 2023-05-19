@@ -23,5 +23,5 @@ class MaybeBitchRepo(Protocol):
     async def add_maybe_bitch(self, maybe_bitch: entities.MaybeBitch) -> None:
         raise NotImplementedError
 
-    async def delete_maybe_bitch(self, maybe_bitch: entities.MaybeBitch) -> None:
+    async def delete_by_id(self, maybe_bitch_id: UUID) -> None:
         raise NotImplementedError
