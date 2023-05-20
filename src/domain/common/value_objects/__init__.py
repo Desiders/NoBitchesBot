@@ -1,1 +1,1 @@
-from .base import BaseValueObject, ValueObject
+from .base import ValueObject

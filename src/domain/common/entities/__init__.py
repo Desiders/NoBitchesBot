@@ -1,1 +1,1 @@
-from .entity import Entity
+from .base import Entity

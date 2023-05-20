@@ -1,3 +1,5 @@
+from .ban_pattern import BanPattern
+from .ban_pattern_bitch import BanPatternBitch
 from .base import BaseModel
 from .bitch import Bitch
 from .bitch_chat import BitchChat
