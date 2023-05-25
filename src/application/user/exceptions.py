@@ -15,7 +15,7 @@ class UserIdAlreadyExists(ApplicationException):
 
 @dataclass(eq=False)
 class UserTgIdAlreadyExists(ApplicationException):
-    user_tg_id: UUID
+    user_tg_id: int
 
     @property
     def message(self) -> str:
@@ -33,7 +33,7 @@ class UserIdNotExist(ApplicationException):
 
 @dataclass(eq=False)
 class UserTgIdNotExist(ApplicationException):
-    user_tg_id: UUID
+    user_tg_id: int
 
     @property
     def message(self) -> str:
