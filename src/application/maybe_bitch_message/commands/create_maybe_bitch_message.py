@@ -16,6 +16,7 @@ logger = logging.getLogger(__name__)
 class CreateMaybeBitchMessage(Command[dto.MaybeBitchMessage]):
     id: UUID
     maybe_bitch_id: UUID
+    chat_id: UUID
     message_id: int
     message: str | None = None
     caption: str | None = None
@@ -38,6 +39,7 @@ class CreateMaybeBitchMessageHandler(
         maybe_bitch_message = entities.MaybeBitchMessage(
             command.id,
             command.maybe_bitch_id,
+            command.chat_id,
             command.message_id,
             command.message,
             command.caption,

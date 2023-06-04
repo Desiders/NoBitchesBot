@@ -15,7 +15,7 @@ class ChatIdAlreadyExists(ApplicationException):
 
 @dataclass(eq=False)
 class ChatTgIdAlreadyExists(ApplicationException):
-    chat_tg_id: UUID
+    chat_tg_id: int
 
     @property
     def message(self) -> str:
@@ -33,7 +33,7 @@ class ChatIdNotExist(ApplicationException):
 
 @dataclass(eq=False)
 class ChatTgIdNotExist(ApplicationException):
-    chat_tg_id: UUID
+    chat_tg_id: int
 
     @property
     def message(self) -> str:

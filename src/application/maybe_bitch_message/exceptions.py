@@ -38,15 +38,3 @@ class MaybeBitchMessageBitchIdNotExist(ApplicationException):
             f'A maybe bitch message with "{self.maybe_bitch_bitch_id}" '
             "maybe_bitch_message_bitch_id doesn't exist"
         )
-
-
-@dataclass(eq=False)
-class MaybeBitchMessageMessageIdNotExist(ApplicationException):
-    maybe_bitch_message_message_id: UUID
-
-    @property
-    def message(self) -> str:
-        return (
-            f'A maybe bitch message with "{self.maybe_bitch_message_message_id}" '
-            "maybe_bitch_message_message_id doesn't exist"
-        )

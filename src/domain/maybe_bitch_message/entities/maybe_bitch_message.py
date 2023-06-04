@@ -8,6 +8,7 @@ from src.domain.common.entities import Entity
 class MaybeBitchMessage(Entity):
     id: UUID
     maybe_bitch_id: UUID
+    chat_id: UUID
     message_id: int
     message: str | None
     caption: str | None

@@ -20,5 +20,5 @@ class ChatReader(Protocol):
 
 
 class ChatRepo(Protocol):
-    async def add_chat(self, Chat: entities.Chat) -> None:
+    async def add_chat(self, chat: entities.Chat) -> None:
         raise NotImplementedError

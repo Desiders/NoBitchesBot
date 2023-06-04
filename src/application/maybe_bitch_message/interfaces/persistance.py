@@ -14,9 +14,6 @@ class MaybeBitchMessageReader(Protocol):
     ) -> dto.MaybeBitchMessage:
         raise NotImplementedError
 
-    async def get_by_message_id(self, message_id: UUID) -> dto.MaybeBitchMessage:
-        raise NotImplementedError
-
     async def get_maybe_bitches_messages(self) -> list[dto.MaybeBitchMessage]:
         raise NotImplementedError
 

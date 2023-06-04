@@ -16,6 +16,7 @@ class MaybeBitchMessage(TimedBaseModel):
         primary_key=True, default=uuid7, server_default=sa.func.uuid_generate_v7()
     )
     maybe_bitch_id: Mapped[UUID] = mapped_column(ForeignKey("maybe_bitches.id"))
+    chat_id: Mapped[UUID] = mapped_column(ForeignKey("chats.id"))
     message_id: Mapped[BigInteger]
     message: Mapped[str | None]
     caption: Mapped[str | None]
